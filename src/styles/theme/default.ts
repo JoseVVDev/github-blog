@@ -9,5 +9,15 @@ export const defaultTheme = {
   'base-post': '#112131',
   'base-profile': '#0B1B2B',
   'base-background': '#071422',
-  'base-input' : '#040F1A'
+  'base-input' : '#040F1A',
+
+  'tx-12': '0.75rem',
+  'tx-14': '0.875rem',
+  'tx-16': '1rem',
+  'tx-18': '1.125rem',
+  'tx-20': '1.25rem',
+  'tx-24': '1.5rem',
+
+  'regular': '400',
+  'bold': '700'
 }
