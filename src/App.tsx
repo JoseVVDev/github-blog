@@ -1,11 +1,15 @@
 import { ThemeProvider } from "styled-components";
+import { AppHeader } from "./styles/app";
 import { defaultTheme } from './styles/theme/default'
-import Teste from "./teste";
+import Home from "./Home";
 
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Teste/>
+      <AppHeader>
+        <img src="src/assets/Logo.png"/>
+      </AppHeader>
+      <Home/>
     </ThemeProvider>
   )
 } 
