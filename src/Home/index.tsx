@@ -1,10 +1,11 @@
-import { HomeContainer, HomeLinkContainer, HomeTextContainer } from "./styles";
+import { HomeContainer, HomeLinkContainer, HomeTextContainer, SearchContainer } from "./styles";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 
 export default function Home() {
     return (
+        <>
         <HomeContainer>
             <img src="https://pbs.twimg.com/profile_images/1524422557268684800/_tXGK0PZ_400x400.jpg" alt="" />
             <HomeTextContainer>
@@ -18,5 +19,11 @@ export default function Home() {
                 </HomeLinkContainer>
             </HomeTextContainer>
         </HomeContainer>
+        <SearchContainer>
+            <p>Publicações</p>
+            <span>6 publicações</span>
+            <input type="text" placeholder="Buscar conteúdo" />
+        </SearchContainer>
+        </>
     )
 }

@@ -50,7 +50,6 @@ export const HomeTextContainer = styled.div`
     }
 `
 
-
 export const HomeLinkContainer = styled.div`
     width: 100%;
     display: flex;
@@ -64,5 +63,46 @@ export const HomeLinkContainer = styled.div`
 
     span {
         color: ${props => props.theme["base-subtitle"]};
+    }
+`
+export const SearchContainer = styled.div`
+    width: 60%;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    justify-content: space-between;
+    margin-top: 72px;
+
+    p {
+        color: ${props => props.theme["base-subtitle"]};
+        font-weight: ${props => props.theme["bold"]};
+        font-size: ${props => props.theme["tx-18"]};
+    }
+
+    span {
+        color: ${props => props.theme["base-span"]};
+        font-size: ${props => props.theme["tx-14"]};
+    }
+
+    input {
+        margin-top: 12px;
+        width: 100%;
+        background-color: ${props => props.theme["base-input"]};
+        border: 1px solid ${props => props.theme["base-border"]};
+        border-radius: 6px;
+        padding: 12px;
+        transition: border 0.2s;
+
+        :focus {
+            outline: none;
+            border: 1px solid ${props => props.theme["blue"]};
+            color: ${props => props.theme["base-text"]};
+            
+        }
+
+        ::placeholder {
+            color: ${props => props.theme["base-label"]};
+            font-size: ${props => props.theme["tx-16"]};
+        }
     }
 `
