@@ -17,7 +17,6 @@ export const HomeContainer = styled.header`
         border-radius: 8px;
     }
 `
-
 export const HomeTextContainer = styled.div`
     margin-left: 32px;
     display: flex;
@@ -49,7 +48,6 @@ export const HomeTextContainer = styled.div`
         font-weight: ${props => props.theme.regular};
     }
 `
-
 export const HomeLinkContainer = styled.div`
     width: 100%;
     display: flex;
@@ -89,6 +87,7 @@ export const SearchContainer = styled.div`
         width: 100%;
         background-color: ${props => props.theme["base-input"]};
         border: 1px solid ${props => props.theme["base-border"]};
+        color: ${props => props.theme["base-text"]};
         border-radius: 6px;
         padding: 12px;
         transition: border 0.2s;
@@ -96,7 +95,6 @@ export const SearchContainer = styled.div`
         :focus {
             outline: none;
             border: 1px solid ${props => props.theme["blue"]};
-            color: ${props => props.theme["base-text"]};
             
         }
 
@@ -105,4 +103,13 @@ export const SearchContainer = styled.div`
             font-size: ${props => props.theme["tx-16"]};
         }
     }
+`
+export const PostsContainer = styled.div`
+    width: 60%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 42px;
+    margin-bottom: 150px;
 `

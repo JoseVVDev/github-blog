@@ -1,7 +1,8 @@
-import { HomeContainer, HomeLinkContainer, HomeTextContainer, SearchContainer } from "./styles";
+import { HomeContainer, HomeLinkContainer, HomeTextContainer, PostsContainer, SearchContainer } from "./styles";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+import { PostCard } from "./PostCards";
 
 export default function Home() {
     return (
@@ -24,6 +25,11 @@ export default function Home() {
             <span>6 publicações</span>
             <input type="text" placeholder="Buscar conteúdo" />
         </SearchContainer>
+        <PostsContainer>
+            <PostCard/>
+            <PostCard/>
+            <PostCard/>
+        </PostsContainer>
         </>
     )
 }
