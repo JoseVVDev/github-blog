@@ -11,6 +11,13 @@ export const CardContainer = styled.div`
     overflow: hidden;
     gap: 10px;
     align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 2px solid transparent;
+
+    :hover {
+        border: 2px solid ${props => props.theme["base-label"]};
+    }
 
     h3 {
         color: ${props => props.theme["base-title"]};

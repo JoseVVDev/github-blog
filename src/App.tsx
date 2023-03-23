@@ -2,6 +2,7 @@ import { ThemeProvider } from "styled-components";
 import { AppHeader } from "./styles/app";
 import { defaultTheme } from './styles/theme/default'
 import Home from "./Home";
+import { Post } from "./Post";
 
 export function App() {
   return (
@@ -9,7 +10,8 @@ export function App() {
       <AppHeader>
         <img src="src/assets/Logo.png"/>
       </AppHeader>
-      <Home/>
+      {/* <Home/> */}
+      <Post/>
     </ThemeProvider>
   )
 } 
