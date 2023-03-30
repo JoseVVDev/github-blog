@@ -10,8 +10,8 @@ export function App() {
       <AppHeader>
         <img src="src/assets/Logo.png"/>
       </AppHeader>
-      {/* <Home/> */}
-      <Post/>
+      <Home/>
+      {/* <Post/> */}
     </ThemeProvider>
   )
 } 

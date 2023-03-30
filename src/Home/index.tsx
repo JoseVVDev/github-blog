@@ -4,6 +4,19 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { PostCard } from "./PostCards";
 
+interface PostInterface {
+    title: string,
+    created_at: string,
+    body: string,
+}
+
+async function getPosts() {
+    const response = await fetch('https://api.github.com/repos/JoseVVDev/github-blog/issues');
+     return response.json()
+  }
+  
+const Posts: PostInterface[] = await getPosts();
+
 export default function Home() {
     return (
         <>
@@ -26,9 +39,11 @@ export default function Home() {
             <input type="text" placeholder="Buscar conteúdo" />
         </SearchContainer>
         <PostsContainer>
-            <PostCard/>
-            <PostCard/>
-            <PostCard/>
+            {
+                Posts.map(post => {
+                    return <PostCard title={post.title} date={post.created_at} paragraph={post.body}/>
+                })
+            }
         </PostsContainer>
         </>
     )
