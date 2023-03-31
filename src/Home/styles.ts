@@ -46,6 +46,7 @@ export const HomeTextContainer = styled.div`
     p {
         font-size: ${props => props.theme["tx-16"]};
         font-weight: ${props => props.theme.regular};
+        width: 100%;
     }
 `
 export const HomeLinkContainer = styled.div`

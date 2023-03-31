@@ -1,8 +1,9 @@
 import { HomeContainer, HomeLinkContainer, HomeTextContainer, PostsContainer, SearchContainer } from "./styles";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUpRightFromSquare, faFolderTree, faAt } from '@fortawesome/free-solid-svg-icons'
 import { PostCard } from "./PostCards";
+import axios from "axios";
 
 interface PostInterface {
     title: string,
@@ -10,38 +11,53 @@ interface PostInterface {
     body: string,
 }
 
-async function getPosts() {
-    const response = await fetch('https://api.github.com/repos/JoseVVDev/github-blog/issues');
-     return response.json()
-  }
-  
-const Posts: PostInterface[] = await getPosts();
+interface UserInterface {
+    login: string,
+    avatar_url: string,
+    html_url: string,
+    name: string,
+    bio: string,
+    public_repos: number,
+    blog: string
+}
+
+const Posts: PostInterface[] = 
+    await axios.get('https://api.github.com/repos/JoseVVDev/github-blog/issues')
+        .then(res => {
+            return res.data
+        });
+
+const User: UserInterface = 
+    await axios.get('https://api.github.com/users/JoseVVDev')
+        .then(res => {
+            return res.data
+        })
 
 export default function Home() {
     return (
         <>
         <HomeContainer>
-            <img src="https://pbs.twimg.com/profile_images/1524422557268684800/_tXGK0PZ_400x400.jpg" alt="" />
+            <img src={User.avatar_url} alt="" />
             <HomeTextContainer>
-                <span>Nome User</span>
-                <a href="/">GITHUB <FontAwesomeIcon icon={faArrowUpRightFromSquare} size={"sm"}/></a>
-                <p>Tristique volut pat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</p>
+                <span>{User.name}</span>
+                <a href={User.html_url}>GITHUB <FontAwesomeIcon icon={faArrowUpRightFromSquare} size={"sm"}/></a>
+                <p>{User.bio}</p>
                 <HomeLinkContainer>
-                    <span><FontAwesomeIcon icon={faGithub}/> Seu Nome</span>
-                    <span><FontAwesomeIcon icon={faGithub}/> Seu Nome</span>
-                    <span><FontAwesomeIcon icon={faGithub}/> Seu Nome</span>
+                    <span><FontAwesomeIcon icon={faGithub}/> {User.login}</span>
+                    <span><FontAwesomeIcon icon={faFolderTree}/> {User.public_repos} Repositórios</span>
+                    <span><FontAwesomeIcon icon={faAt}/> {User.blog}</span>
                 </HomeLinkContainer>
             </HomeTextContainer>
         </HomeContainer>
         <SearchContainer>
             <p>Publicações</p>
-            <span>6 publicações</span>
+            <span>{Posts.length} publicações</span>
             <input type="text" placeholder="Buscar conteúdo" />
         </SearchContainer>
         <PostsContainer>
             {
                 Posts.map(post => {
-                    return <PostCard title={post.title} date={post.created_at} paragraph={post.body}/>
+                    return <PostCard title={post.title} date={post.created_at} paragraph={post.body} key={post.title + post.created_at}/>
                 })
             }
         </PostsContainer>
