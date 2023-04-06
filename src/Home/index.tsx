@@ -9,6 +9,11 @@ interface PostInterface {
     title: string,
     created_at: string,
     body: string,
+    user: {
+        login: string
+    },
+    comments: number,
+    html_url: string,
 }
 
 interface UserInterface {
@@ -57,7 +62,14 @@ export default function Home() {
         <PostsContainer>
             {
                 Posts.map(post => {
-                    return <PostCard title={post.title} date={post.created_at} paragraph={post.body} key={post.title + post.created_at}/>
+                    return <PostCard 
+                        title={post.title} 
+                        date={post.created_at} 
+                        paragraph={post.body} 
+                        user={post.user.login} 
+                        url={post.html_url}
+                        comments={post.comments} 
+                        key={post.title + post.created_at}/>
                 })
             }
         </PostsContainer>
