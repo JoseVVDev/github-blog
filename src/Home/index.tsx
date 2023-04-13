@@ -45,7 +45,7 @@ export default function Home() {
             <img src={User.avatar_url} alt="" />
             <HomeTextContainer>
                 <span>{User.name}</span>
-                <a href={User.html_url}>GITHUB <FontAwesomeIcon icon={faArrowUpRightFromSquare} size={"sm"}/></a>
+                <a href={User.html_url} target="_blank" rel="noreferrer noopener">GITHUB <FontAwesomeIcon icon={faArrowUpRightFromSquare} size={"sm"}/></a>
                 <p>{User.bio}</p>
                 <HomeLinkContainer>
                     <span><FontAwesomeIcon icon={faGithub}/> {User.login}</span>

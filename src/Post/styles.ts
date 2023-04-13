@@ -38,6 +38,12 @@ export const PostTitleContainer = styled.div`
         text-decoration: none;
         color: ${props => props.theme["blue"]};        
         font-weight: ${props => props.theme.bold};
+        border-bottom: 1px solid transparent;
+        transition: 0.2s;
+
+        :hover {
+            border-bottom: 1px solid ${props => props.theme["blue"]};
+        }
     }
 
     p {
@@ -60,10 +66,25 @@ export const PostLinkContainer = styled.div`
         color: ${props => props.theme["base-subtitle"]};
     }
 `
-export const PostContainer = styled.div`
+export const PostContainer = styled.section`
     width: 60%;
-    margin: 40px auto;
+    margin: 8px auto 40px;
     padding: 32px;
     color: ${props => props.theme["base-text"]};
     font-size: ${props => props.theme["tx-16"]};
+
+    p {
+        margin-bottom: 25px;
+    }
+
+    pre {
+        pre {
+            background-color: ${props => props.theme["base-border"]}!important;
+        }
+
+        code {
+            background-color: ${props => props.theme["base-border"]}!important;
+        }
+    }
+
     `

@@ -37,10 +37,18 @@ export const HomeTextContainer = styled.div`
         text-decoration: none;
         color: ${props => props.theme["blue"]};        
         font-weight: ${props => props.theme.bold};
+        height: 1.25rem;
+        border-bottom: 1px solid transparent;
+        transition: 0.2s;
+        
+        :hover {
+            border-bottom: 1px solid ${props => props.theme["blue"]};
+        }
 
         > svg {
             margin-left: 5px;
         }
+        
     }
 
     p {
