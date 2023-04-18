@@ -4,6 +4,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faArrowUpRightFromSquare, faFolderTree, faAt } from '@fortawesome/free-solid-svg-icons'
 import { PostCard } from "./PostCards";
 import axios from "axios";
+import {HandleDate} from '../lib/HandleDate'
 
 interface PostInterface {
     title: string,
@@ -64,7 +65,7 @@ export default function Home() {
                 Posts.map(post => {
                     return <PostCard 
                         title={post.title} 
-                        date={post.created_at} 
+                        date={HandleDate(post.created_at)} 
                         paragraph={post.body} 
                         user={post.user.login} 
                         url={post.html_url}

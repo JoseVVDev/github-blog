@@ -2,14 +2,14 @@
 
 ## Home
 
-- [ ] Imagem cover e logo.
-- [ ] Bloco profile com block shadow.
+- [x] Imagem cover e logo.
+- [x] Bloco profile com block shadow.
 - [ ] Componente Link.
-- [ ] Contador de Publicações.
+- [x] Contador de Publicações.
 - [ ] Componente search/filter.
-- [ ] Componente cards.
+- [x] Componente cards.
 
 ### Componente post
 
-- [ ] Heading com links
-- [ ] Corpo do texto
+- [x] Heading com links
+- [x] Corpo do texto
