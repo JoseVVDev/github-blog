@@ -5,6 +5,7 @@ import { faArrowUpRightFromSquare, faFolderTree, faAt } from '@fortawesome/free-
 import { PostCard } from "./PostCards";
 import axios from "axios";
 import {HandleDate} from '../lib/HandleDate'
+import { useState } from "react";
 
 interface PostInterface {
     title: string,
@@ -27,19 +28,32 @@ interface UserInterface {
     blog: string
 }
 
+
 const Posts: PostInterface[] = 
     await axios.get('https://api.github.com/repos/JoseVVDev/github-blog/issues')
         .then(res => {
             return res.data
         });
 
+        
 const User: UserInterface = 
     await axios.get('https://api.github.com/users/JoseVVDev')
         .then(res => {
             return res.data
         })
 
-export default function Home() {
+export default  function Home() {
+    const [posts_, setPosts_] = useState(Posts)
+
+    const handleSearch = function (query: React.ChangeEvent<HTMLInputElement>) {
+        const searchQuery = query.target.value
+        let filteredPosts = [...Posts]
+        filteredPosts = filteredPosts.filter((post) => {
+            return post.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1
+        });
+        setPosts_(filteredPosts);
+    }
+
     return (
         <>
         <HomeContainer>
@@ -57,12 +71,16 @@ export default function Home() {
         </HomeContainer>
         <SearchContainer>
             <p>Publicações</p>
-            <span>{Posts.length} publicações</span>
-            <input type="text" placeholder="Buscar conteúdo" />
+            <span>{posts_.length} publicações</span>
+            <input 
+                type="text" 
+                placeholder="Buscar conteúdo" 
+                onChange={handleSearch} 
+            />
         </SearchContainer>
         <PostsContainer>
             {
-                Posts.map(post => {
+                posts_.map(post => {
                     return <PostCard 
                         title={post.title} 
                         date={HandleDate(post.created_at)} 
